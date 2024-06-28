@@ -3,23 +3,19 @@ package org.koreait;
 import org.koreait.motivation.Controller.MotivationController;
 import org.koreait.system.controller.SystemController;
 
-import java.util.Scanner;
 
 public class App {
 
-    private Scanner sc;
-
-    public App(Scanner sc) {
-        this.sc = sc;
+    public App() {
     }
 
     public void run() {
         System.out.println("== motivation 실행 ==");
         SystemController systemController = new SystemController();
-        MotivationController motivationController = new MotivationController(sc);
+        MotivationController motivationController = new MotivationController();
         while (true) {
             System.out.printf("명령어 ) ");
-            String cmd = sc.nextLine().trim();
+            String cmd = Container.getScanner().nextLine().trim();
 
             if (cmd.equals("exit")) {
                 systemController.exit();
@@ -31,11 +27,17 @@ public class App {
 
             if (cmd.equals("add")) {
                 motivationController.add();
+            } else if (cmd.equals("list")) {
+                motivationController.list();
+            } else if (cmd.equals("search")) {
+                motivationController.search();
+            } else if(cmd.equals("delete")) {
+                motivationController.delete();
+            } else if (cmd.equals("update")) {
+                motivationController.update();
             }
 
-            if (cmd.equals("list")) {
-                motivationController.list();
-            }
+
         }
     }
 }
