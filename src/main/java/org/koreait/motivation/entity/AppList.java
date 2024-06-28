@@ -2,7 +2,7 @@ package org.koreait.motivation.entity;
 
 public class AppList {
 
-    AppList(String body, String source, int id) {
+    public AppList(String body, String source, int id) {
         this.appMotivation = body;
         this.appSource = source;
         this.appNumber = id;
