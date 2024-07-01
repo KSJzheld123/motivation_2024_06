@@ -90,7 +90,6 @@ public class MotivationController {
         try {
             System.out.println("삭제할 Id를 입력해주세요");
             String deletId2 = Container.getScanner().nextLine();
-
             int deleteId = Integer.parseInt(deletId2);
             int count = 0;
 
@@ -100,13 +99,14 @@ public class MotivationController {
                     System.out.println("삭제할 Motivation : " + motivations.get(i).getAppMotivation());
                     System.out.println("삭제할 Source : " + motivations.get(i).getAppSource());
                     System.out.println("삭제하시겠습니까? ( yes / no )");
+
                     String Y_N = Container.getScanner().nextLine();
                     if (Y_N.equals("no")) {
-                        break;
+                        return;
                     } else if (Y_N.equals("yes")) {
                         motivations.remove(i);
-                        System.out.printf("%d번Id를 삭제하였습니다\n", deleteId);
-                        break;
+                        System.out.printf("%d번 Id를 삭제하였습니다\n", deleteId);
+                        return;
                     }else {
                         System.out.println("다시 입력해주세요");
                         delete();
@@ -114,7 +114,7 @@ public class MotivationController {
                 }
                 if (count == 0) {
                     System.out.println("해당Id는 없습니다");
-                    delete();
+                    return;
                 }
             }
 
