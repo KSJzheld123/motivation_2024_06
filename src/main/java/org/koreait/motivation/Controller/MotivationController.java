@@ -82,7 +82,6 @@ public class MotivationController {
             System.out.println("숫자만 입력해 주세요");
             search();
         }
-
     }
 
     //
@@ -99,7 +98,7 @@ public class MotivationController {
                     System.out.println("삭제할 Motivation : " + motivations.get(i).getAppMotivation());
                     System.out.println("삭제할 Source : " + motivations.get(i).getAppSource());
                     System.out.println("삭제하시겠습니까? ( yes / no )");
-
+                    count++;
                     String Y_N = Container.getScanner().nextLine();
                     if (Y_N.equals("no")) {
                         return;
@@ -107,22 +106,20 @@ public class MotivationController {
                         motivations.remove(i);
                         System.out.printf("%d번 Id를 삭제하였습니다\n", deleteId);
                         return;
-                    }else {
+                    } else {
                         System.out.println("다시 입력해주세요");
                         delete();
                     }
                 }
-                if (count == 0) {
-                    System.out.println("해당Id는 없습니다");
-                    return;
-                }
             }
-
+            if (count == 0) {
+                System.out.println("해당Id는 없습니다");
+                delete();
+            }
         } catch (NumberFormatException e) {
             System.out.println("숫자만 입력해 주세요");
             delete();
         }
-
     }
 
     //
