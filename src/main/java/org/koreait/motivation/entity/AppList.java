@@ -35,6 +35,4 @@ public class AppList {
     public void setAppNumber(int appNumber) {
         this.appNumber = appNumber;
     }
-
-
 }
